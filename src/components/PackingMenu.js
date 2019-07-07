@@ -34,7 +34,6 @@ class PackingMenu extends React.Component {
     constructor(props) {
         super(props);
         props.history.listen((location) => {
-            console.log(location)
             this.setState({
                 current:location.pathname
             })
@@ -49,17 +48,25 @@ class PackingMenu extends React.Component {
 
     state = {
         current: '/main/home',
-        openKeys:''
+        openKeys: []
     }
     handleClick = (e) => {
         this.setState({
             current: e.key,
         });
     }
+    openChange = (e) => {
+        // 设置值展开一个
+        this.setState({
+            openKeys: e.length > 1 ? [e[e.length - 1]] : e
+        })
+    }
 
     render() {
         return (
-            <Menu theme="dark" selectedKeys={[this.state.current]}   onClick={this.handleClick} mode="inline">
+            <Menu theme="dark" selectedKeys={[this.state.current]} openKeys={this.state.openKeys}
+                  onOpenChange={this.openChange} onClick={this.handleClick}
+                  mode="inline">
                 {routeConfig.menus.map((menu) => (
                         menu.childrenList ? renderSubMenu(menu) : renderMenuItem(menu)
                     )
