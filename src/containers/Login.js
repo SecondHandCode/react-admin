@@ -1,16 +1,55 @@
 import React from 'react'
 import '../style/login.scss'
-import { Form, Icon, Input, Button} from 'antd';
+import loginJson from '../data/login'
+import cookies from 'react-cookies'
+import {createHashHistory} from 'history';
+import {Form, Icon, Input, Button, message} from 'antd';
 const FormItem = Form.Item;
+// has 路由跳转
+const history = createHashHistory();
 
 class Login extends React.Component{
+    constructor(props) {
+        super(props);
+        this.state = {
+            loading: false
+        };
+    }
+
+    componentWillMount() {
+        // 用户信息存在 直接进入页面
+        if (cookies.load('user')) {
+            history.push("/Main")
+        }
+    }
     handleSubmit = (e) => {
         e.preventDefault();
-        this.props.form.validateFields((err, values) => {
-            if (!err) {
-                console.log('Received values of form: ', values);
+        // 按钮loading
+        this.setState((state) => (
+            {
+                loading: true
             }
-        });
+        ))
+        setTimeout(() => {
+            this.props.form.validateFields((err, values) => {
+                // 恢复
+                this.setState((state) => (
+                    {
+                        loading: false
+                    }
+                ))
+                if (!err) {
+                    if (values.userName === loginJson.userName && values.password === loginJson.password) {
+                        cookies.save("user", loginJson)
+                        message.success("登录成功！");
+                        history.push('/Main')
+                    } else {
+                        message.error("账号密码错误");
+                    }
+                }
+            });
+        }, 1000)
+
     }
     render() {
         const { getFieldDecorator } = this.props.form;
@@ -37,7 +76,8 @@ class Login extends React.Component{
                         </FormItem>
                         <FormItem>
                             <div className={'line-align-center'}>
-                                <Button type="primary" htmlType="submit" className="login-form-button">
+                                <Button type="primary" loading={this.state.loading} htmlType="submit"
+                                        className="login-form-button">
                                     登录
                                 </Button>
                             </div>
