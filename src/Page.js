@@ -9,7 +9,7 @@ export default ()=>(
     <HashRouter>
         <Switch>
             <Route exact  path="/"  render={()=>(
-                !loginUser ? <Redirect to={'/login'}></Redirect> : <Redirect to={'/Main'}></Redirect>
+                !loginUser ? <Redirect to={'/login'}></Redirect> : <Redirect to={'/main'}></Redirect>
             )}   />
             <Route path="/main" component={Main}/>
             <Route  path="/login"  component={App}  />

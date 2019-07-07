@@ -19,7 +19,7 @@ class Login extends React.Component{
     componentWillMount() {
         // 用户信息存在 直接进入页面
         if (cookies.load('user')) {
-            history.push("/Main")
+            history.push("/main")
         }
     }
     handleSubmit = (e) => {
@@ -42,7 +42,7 @@ class Login extends React.Component{
                     if (values.userName === loginJson.userName && values.password === loginJson.password) {
                         cookies.save("user", loginJson)
                         message.success("登录成功！");
-                        history.push('/Main')
+                        history.push('/main')
                     } else {
                         message.error("账号密码错误");
                     }
