@@ -4,6 +4,7 @@ import {connect} from 'react-redux'
 import {toggleLabelSelect, removeLabelPage} from '../actions/index'
 import '../style/labelPage.scss'
 
+
 class LabelPage extends React.Component {
     closeLabel = (item,index, e) => {
         this.props.dispatch(removeLabelPage(index));
