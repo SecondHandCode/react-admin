@@ -2,19 +2,17 @@ import React from 'react'
 import {Menu, Icon} from 'antd';
 import {withRouter} from 'react-router-dom'
 import routeConfig from '../routes/config'
-import {Link} from 'react-router-dom';
-
+import {connect} from 'react-redux'
+import {addLabelPage} from '../actions/index'
 const SubMenu = Menu.SubMenu;
 
-const renderMenuItem = item => (
-    <Menu.Item key={item.url}>
-        <Link to={item.url}>
+const renderMenuItem = (item,self) => (
+    <Menu.Item key={item.url} onClick={self.toLink.bind(self,item)}>
             {item.iconType && <Icon type={item.iconType}/>}
             {item.title}
-        </Link>
     </Menu.Item>
 )
-const renderSubMenu = item => (
+const renderSubMenu = (item,self) => (
     <SubMenu
         key={item.url}
         title={
@@ -26,13 +24,14 @@ const renderSubMenu = item => (
              </span>
         }
     >
-        {item.childrenList.map(item => renderMenuItem(item))}
+        {item.childrenList.map(item => renderMenuItem(item,self))}
     </SubMenu>
 )
 
 class PackingMenu extends React.Component {
     constructor(props) {
         super(props);
+        // 路由监听
         props.history.listen((location) => {
             this.setState({
                 current:location.pathname
@@ -50,25 +49,27 @@ class PackingMenu extends React.Component {
         current: '/main/home',
         openKeys: []
     }
-    handleClick = (e) => {
-        this.setState({
-            current: e.key,
-        });
-    }
     openChange = (e) => {
         // 设置值展开一个
         this.setState({
             openKeys: e.length > 1 ? [e[e.length - 1]] : e
         })
     }
+    toLink = (item) => {
+        this.setState({
+            current:item.url
+        });
+        this.props.dispatch(addLabelPage(item));
+        this.props.history.replace(item.url);
+    }
 
     render() {
         return (
             <Menu theme="dark" selectedKeys={[this.state.current]} openKeys={this.state.openKeys}
-                  onOpenChange={this.openChange} onClick={this.handleClick}
+                  onOpenChange={this.openChange}
                   mode="inline">
                 {routeConfig.menus.map((menu) => (
-                        menu.childrenList ? renderSubMenu(menu) : renderMenuItem(menu)
+                        menu.childrenList ? renderSubMenu(menu,this) : renderMenuItem(menu,this)
                     )
                 )
                 }
@@ -77,4 +78,9 @@ class PackingMenu extends React.Component {
     }
 }
 
-export default withRouter(PackingMenu)
+const mapStateToProps = (state) => {
+    return {
+        count: state
+    }
+}
+export default connect(mapStateToProps)(withRouter(PackingMenu))

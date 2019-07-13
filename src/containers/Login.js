@@ -4,6 +4,8 @@ import loginJson from '../data/login'
 import cookies from 'react-cookies'
 import {createHashHistory} from 'history';
 import {Form, Icon, Input, Button, message} from 'antd';
+import {connect} from 'react-redux'
+import {toggleLabelSelect} from '../actions/index'
 const FormItem = Form.Item;
 // has 路由跳转
 const history = createHashHistory();
@@ -19,7 +21,7 @@ class Login extends React.Component{
     componentWillMount() {
         // 用户信息存在 直接进入页面
         if (cookies.load('user')) {
-            history.push("/main")
+            history.push("/main/home")
         }
     }
     handleSubmit = (e) => {
@@ -42,7 +44,9 @@ class Login extends React.Component{
                     if (values.userName === loginJson.userName && values.password === loginJson.password) {
                         cookies.save("user", loginJson)
                         message.success("登录成功！");
-                        history.push('/main')
+                        history.replace('/main/home');
+                        // 默认选中第一个
+                        this.props.dispatch(toggleLabelSelect(0))
                     } else {
                         message.error("账号密码错误");
                     }
@@ -85,10 +89,8 @@ class Login extends React.Component{
                     </Form>
                 </div>
             </div>
-
-
         )
     }
 }
 const WrappedNormalLoginForm = Form.create()(Login);
-export default  WrappedNormalLoginForm
+export default connect()(WrappedNormalLoginForm);

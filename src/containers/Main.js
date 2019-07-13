@@ -4,6 +4,8 @@ import cookies from 'react-cookies'
 import {createHashHistory} from 'history';
 // 左侧栏
 import PackingMenu from '../components/PackingMenu'
+// 标签页
+import LabelPage from '../components/LabelPage'
 
 const {Header, Content, Footer, Sider} = Layout;
 
@@ -43,7 +45,9 @@ class Main extends React.Component {
                             onClick={this.toggle}
                         />
                     </Header>
+                    <LabelPage></LabelPage>
                     <Content style={{margin: '0 16px'}}>
+                        {/*当前页面标记栏*/}
                         <Breadcrumb style={{margin: '16px 0'}}>
                             <Breadcrumb.Item>User</Breadcrumb.Item>
                             <Breadcrumb.Item>Bill</Breadcrumb.Item>
