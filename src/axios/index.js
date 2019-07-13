@@ -73,10 +73,8 @@ function apiAxios(method, url, params, success, failure) {
                 success(r)
             } else if (r.code === 6 && window.code6 === 0) {
                 window.code6 += 1;
-                window.logoutBack = setTimeout(function () {
-                    document.getElementById("logoutClick").click();
-                    window.code6 = 0;
-                }, 3000)
+                document.getElementById("logoutClick").click();
+                window.code6 = 0;
             } else {
                 // 错误回调
                 if (failure) {

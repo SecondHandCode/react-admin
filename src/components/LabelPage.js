@@ -4,19 +4,6 @@ import {connect} from 'react-redux'
 import {toggleLabelSelect, removeLabelPage} from '../actions/index'
 import '../style/labelPage.scss'
 
-const replace = (todos, history) => {
-    debugger
-    let url = '';
-    for (let i = 0, len = todos.length; i < len; i++) {
-        if (todos[i].select) {
-            url = todos[i].url
-        }
-    }
-    if(url){
-        history.replace(url)
-    }
-}
-
 class LabelPage extends React.Component {
     closeLabel = (item,index, e) => {
         this.props.dispatch(removeLabelPage(index));

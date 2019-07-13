@@ -32,7 +32,6 @@ class Login extends React.Component{
                 loading: true
             }
         ))
-        setTimeout(() => {
             this.props.form.validateFields((err, values) => {
                 // 恢复
                 this.setState((state) => (
@@ -52,7 +51,6 @@ class Login extends React.Component{
                     }
                 }
             });
-        }, 1000)
 
     }
     render() {
