@@ -26,6 +26,15 @@ class Main extends React.Component {
             collapsed: !this.state.collapsed,
         });
     }
+    /**
+     * 左侧栏页面跳转 调整滚动条
+     */
+    onMenuToLink = ()=>{
+        this._labelPageChild.mainToLink();
+    }
+    onLabelPageRef = (ref) => {
+        this._labelPageChild = ref
+    }
     render() {
         return (
             <Layout style={{minHeight: '100vh'}} id={'components-layout-demo-custom-trigger'}>
@@ -35,7 +44,7 @@ class Main extends React.Component {
                     collapsed={this.state.collapsed}
                 >
                     <div className="logo"/>
-                    <PackingMenu/>
+                    <PackingMenu onMenuToLink={this.onMenuToLink}/>
                 </Sider>
                 <Layout className={"single-page-main"}>
                     {/*head 栏*/}
@@ -47,7 +56,7 @@ class Main extends React.Component {
                                 onClick={this.toggle}
                             />
                         </Header>
-                        <LabelPage></LabelPage>
+                        <LabelPage onRef={this.onLabelPageRef}></LabelPage>
                         {/*当前页面标记栏*/}
                         <Breadcrumb style={{margin: '10px'}}>
                             <Breadcrumb.Item>User</Breadcrumb.Item>

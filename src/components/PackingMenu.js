@@ -4,6 +4,7 @@ import {withRouter} from 'react-router-dom'
 import routeConfig from '../routes/config'
 import {connect} from 'react-redux'
 import {addLabelPage} from '../actions/index'
+import {PropTypes} from "prop-types";
 const SubMenu = Menu.SubMenu;
 
 const renderMenuItem = (item, parent, self) => (
@@ -61,6 +62,8 @@ class PackingMenu extends React.Component {
         });
         this.props.dispatch(addLabelPage(item));
         this.props.history.replace(item.url);
+        // Main 主体函数 中的函数
+        this.props.onMenuToLink();
     }
 
     render() {
@@ -77,7 +80,10 @@ class PackingMenu extends React.Component {
         )
     }
 }
-
+// 传入props 左侧栏点击 追加label页 溢出情况下 往左边移动
+PackingMenu.propTypes = {
+    onMenuToLink: PropTypes.func
+}
 const mapStateToProps = (state) => {
     return {
         count: state
