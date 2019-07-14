@@ -6,7 +6,7 @@ import {createHashHistory} from 'history';
 import PackingMenu from '../components/PackingMenu'
 // 标签页
 import LabelPage from '../components/LabelPage'
-
+import '../style/main.scss'
 const {Header, Content, Footer, Sider} = Layout;
 
 const history = createHashHistory();
@@ -37,27 +37,83 @@ class Main extends React.Component {
                     <div className="logo"/>
                     <PackingMenu/>
                 </Sider>
-                <Layout>
-                    <Header style={{background: '#fff', padding: 0}}>
-                        <Icon
-                            className="trigger"
-                            type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
-                            onClick={this.toggle}
-                        />
-                    </Header>
-                    <LabelPage></LabelPage>
-                    <Content style={{margin: '0 16px'}}>
+                <Layout className={"single-page-main"}>
+                    {/*head 栏*/}
+                    <div className={"head-fixed"}>
+                        <Header style={{background: '#fff', padding: 0}}>
+                            <Icon
+                                className="trigger"
+                                type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'}
+                                onClick={this.toggle}
+                            />
+                        </Header>
+                        <LabelPage></LabelPage>
                         {/*当前页面标记栏*/}
-                        <Breadcrumb style={{margin: '16px 0'}}>
+                        <Breadcrumb style={{margin: '10px'}}>
                             <Breadcrumb.Item>User</Breadcrumb.Item>
                             <Breadcrumb.Item>Bill</Breadcrumb.Item>
                         </Breadcrumb>
-                        <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                    </div>
+                    {/*内容展示*/}
+                    <div className={"single-page"}>
+                        <Content className={"single-page-content"}>
+                            <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                                Bill is a cat.
+                            </div>
+                            <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                                Bill is a cat.
+                            </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
+                            Bill is a cat.
+                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
                             Bill is a cat.
                         </div>
-                    </Content>
+                        </Content>
+                    </div>
                     <Footer style={{textAlign: 'center'}}>
-                        Ant Design ©2016 Created by Ant UED
                     </Footer>
                 </Layout>
             </Layout>

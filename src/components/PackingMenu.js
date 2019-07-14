@@ -6,25 +6,25 @@ import {connect} from 'react-redux'
 import {addLabelPage} from '../actions/index'
 const SubMenu = Menu.SubMenu;
 
-const renderMenuItem = (item,self) => (
-    <Menu.Item key={item.url} onClick={self.toLink.bind(self,item)}>
+const renderMenuItem = (item, parent, self) => (
+    <Menu.Item key={item.url} onClick={self.toLink.bind(self, item, parent)}>
             {item.iconType && <Icon type={item.iconType}/>}
             {item.title}
     </Menu.Item>
 )
-const renderSubMenu = (item,self) => (
+const renderSubMenu = (itemParent, self) => (
     <SubMenu
-        key={item.url}
+        key={itemParent.url}
         title={
             <span>
-                {item.iconType && <Icon type={item.iconType}/>}
+                {itemParent.iconType && <Icon type={itemParent.iconType}/>}
                 <span>
-                    {item.title}
+                    {itemParent.title}
                 </span>
              </span>
         }
     >
-        {item.childrenList.map(item => renderMenuItem(item,self))}
+        {itemParent.childrenList.map(item => renderMenuItem(item, itemParent, self))}
     </SubMenu>
 )
 
@@ -55,7 +55,7 @@ class PackingMenu extends React.Component {
             openKeys: e.length > 1 ? [e[e.length - 1]] : e
         })
     }
-    toLink = (item) => {
+    toLink = (item, parent) => {
         this.setState({
             current:item.url
         });
@@ -69,7 +69,7 @@ class PackingMenu extends React.Component {
                   onOpenChange={this.openChange}
                   mode="inline">
                 {routeConfig.menus.map((menu) => (
-                        menu.childrenList ? renderSubMenu(menu,this) : renderMenuItem(menu,this)
+                    menu.childrenList ? renderSubMenu(menu, this) : renderMenuItem(menu, undefined, this)
                     )
                 )
                 }

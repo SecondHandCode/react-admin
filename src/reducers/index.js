@@ -57,7 +57,7 @@ function todos(state, action) {
                     }
                 }
             }
-            return {type: REMOVE_LABEL_PAGE, todos: newState};
+            return {type: REMOVE_LABEL_PAGE, todos: [...state.todos]};
         case TOGGLE_LABEL_SELECT:
             newState = state.todos.map((item, index) => {
                 if (index === action.index) {

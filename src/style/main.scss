@@ -1,0 +1,26 @@
+.head-fixed {
+  position: fixed;
+  width: calc(100% - 200px);
+  width: -webkit-calc(100% - 200px);
+}
+
+.single-page-main {
+  position: absolute;
+  left: 200px;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  transition: left .3s;
+}
+.single-page{
+  position: absolute;
+  top: 145px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  &-content{
+    margin: 0 10px;
+  }
+}
