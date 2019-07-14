@@ -6,9 +6,10 @@ import api from './axios/index'
 import Page from './Page'
 import 'antd/dist/antd.css';
 import {Provider} from 'react-redux'
-import {createStore} from 'redux'
+import {createStore,applyMiddleware} from 'redux'
 import todoApp from './reducers/index'
-let store = createStore(todoApp)
+import thunk from 'redux-thunk'
+let store = createStore(todoApp,applyMiddleware(thunk))
 React.$api = api;
 ReactDOM.render(
     <Provider store={store}>

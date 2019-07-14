@@ -8,7 +8,7 @@ const  loginUser = cookies.load("user");
 export default ()=>(
     <HashRouter>
         <Switch>
-            <Route exact  path="/"  render={()=>(
+            <Route exact  path="/"   render={()=>(
                 !loginUser ? <Redirect to={'/login'}></Redirect> : <Redirect to={'/main'}></Redirect>
             )}   />
             <Route path="/main" component={Main}/>
