@@ -69,57 +69,6 @@ class Main extends React.Component {
                             <div style={{padding: 24, background: '#fff', minHeight: 360}}>
                                 Bill is a cat.
                             </div>
-                            <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                                Bill is a cat.
-                            </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>  <div style={{padding: 24, background: '#fff', minHeight: 360}}>
-                            Bill is a cat.
-                        </div>
                         </Content>
                     </div>
                     <Footer style={{textAlign: 'center'}}>

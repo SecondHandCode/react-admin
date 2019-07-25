@@ -68,15 +68,17 @@ class PackingMenu extends React.Component {
 
     render() {
         return (
-            <Menu theme="dark" selectedKeys={[this.state.current]} openKeys={this.state.openKeys}
-                  onOpenChange={this.openChange}
-                  mode="inline">
-                {routeConfig.menus.map((menu) => (
-                    menu.childrenList ? renderSubMenu(menu, this) : renderMenuItem(menu, undefined, this)
+            <div className={"menu-label"}>
+                <Menu theme="dark" selectedKeys={[this.state.current]} openKeys={this.state.openKeys}
+                      onOpenChange={this.openChange}
+                      mode="inline">
+                    {routeConfig.menus.map((menu) => (
+                            menu.childrenList ? renderSubMenu(menu, this) : renderMenuItem(menu, undefined, this)
+                        )
                     )
-                )
-                }
-            </Menu>
+                    }
+                </Menu>
+            </div>
         )
     }
 }
